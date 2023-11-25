@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dgvContatos = new System.Windows.Forms.DataGridView();
             this.gbxCad = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbTelefoneCad = new System.Windows.Forms.TextBox();
+            this.txbEmailCad = new System.Windows.Forms.TextBox();
             this.txbNomeCad = new System.Windows.Forms.TextBox();
             this.lblTelefoneCad = new System.Windows.Forms.Label();
             this.lblEmailCad = new System.Windows.Forms.Label();
             this.lblNomeCad = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gbxEditar = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txbTelefoneEdi = new System.Windows.Forms.TextBox();
+            this.txbEmailEdi = new System.Windows.Forms.TextBox();
             this.txbNomeEdi = new System.Windows.Forms.TextBox();
             this.lblTelefoneEdi = new System.Windows.Forms.Label();
             this.lblEmailEdi = new System.Windows.Forms.Label();
@@ -62,8 +62,8 @@
             // 
             // gbxCad
             // 
-            this.gbxCad.Controls.Add(this.textBox3);
-            this.gbxCad.Controls.Add(this.textBox2);
+            this.gbxCad.Controls.Add(this.txbTelefoneCad);
+            this.gbxCad.Controls.Add(this.txbEmailCad);
             this.gbxCad.Controls.Add(this.txbNomeCad);
             this.gbxCad.Controls.Add(this.lblTelefoneCad);
             this.gbxCad.Controls.Add(this.lblEmailCad);
@@ -76,19 +76,20 @@
             this.gbxCad.TabStop = false;
             this.gbxCad.Text = "Cadastrar";
             // 
-            // textBox3
+            // txbTelefoneCad
             // 
-            this.textBox3.Location = new System.Drawing.Point(61, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.txbTelefoneCad.Location = new System.Drawing.Point(61, 80);
+            this.txbTelefoneCad.Name = "txbTelefoneCad";
+            this.txbTelefoneCad.Size = new System.Drawing.Size(100, 20);
+            this.txbTelefoneCad.TabIndex = 6;
+            this.txbTelefoneCad.TextChanged += new System.EventHandler(this.txbTelefoneCad_TextChanged);
             // 
-            // textBox2
+            // txbEmailCad
             // 
-            this.textBox2.Location = new System.Drawing.Point(61, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.txbEmailCad.Location = new System.Drawing.Point(61, 54);
+            this.txbEmailCad.Name = "txbEmailCad";
+            this.txbEmailCad.Size = new System.Drawing.Size(100, 20);
+            this.txbEmailCad.TabIndex = 5;
             // 
             // txbNomeCad
             // 
@@ -128,7 +129,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(86, 120);
+            this.btnCadastrar.Location = new System.Drawing.Point(86, 133);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 0;
@@ -138,8 +139,8 @@
             // 
             // gbxEditar
             // 
-            this.gbxEditar.Controls.Add(this.textBox4);
-            this.gbxEditar.Controls.Add(this.textBox5);
+            this.gbxEditar.Controls.Add(this.txbTelefoneEdi);
+            this.gbxEditar.Controls.Add(this.txbEmailEdi);
             this.gbxEditar.Controls.Add(this.txbNomeEdi);
             this.gbxEditar.Controls.Add(this.lblTelefoneEdi);
             this.gbxEditar.Controls.Add(this.lblEmailEdi);
@@ -152,19 +153,19 @@
             this.gbxEditar.TabStop = false;
             this.gbxEditar.Text = "Editar";
             // 
-            // textBox4
+            // txbTelefoneEdi
             // 
-            this.textBox4.Location = new System.Drawing.Point(61, 80);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 6;
+            this.txbTelefoneEdi.Location = new System.Drawing.Point(61, 80);
+            this.txbTelefoneEdi.Name = "txbTelefoneEdi";
+            this.txbTelefoneEdi.Size = new System.Drawing.Size(100, 20);
+            this.txbTelefoneEdi.TabIndex = 6;
             // 
-            // textBox5
+            // txbEmailEdi
             // 
-            this.textBox5.Location = new System.Drawing.Point(61, 54);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 5;
+            this.txbEmailEdi.Location = new System.Drawing.Point(61, 54);
+            this.txbEmailEdi.Name = "txbEmailEdi";
+            this.txbEmailEdi.Size = new System.Drawing.Size(100, 20);
+            this.txbEmailEdi.TabIndex = 5;
             // 
             // txbNomeEdi
             // 
@@ -202,12 +203,13 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(86, 120);
+            this.btnEditar.Location = new System.Drawing.Point(86, 130);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 0;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // Form1
             // 
@@ -236,14 +238,14 @@
         private System.Windows.Forms.GroupBox gbxCad;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label lblNomeCad;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbTelefoneCad;
+        private System.Windows.Forms.TextBox txbEmailCad;
         private System.Windows.Forms.TextBox txbNomeCad;
         private System.Windows.Forms.Label lblTelefoneCad;
         private System.Windows.Forms.Label lblEmailCad;
         private System.Windows.Forms.GroupBox gbxEditar;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txbTelefoneEdi;
+        private System.Windows.Forms.TextBox txbEmailEdi;
         private System.Windows.Forms.TextBox txbNomeEdi;
         private System.Windows.Forms.Label lblTelefoneEdi;
         private System.Windows.Forms.Label lblEmailEdi;
