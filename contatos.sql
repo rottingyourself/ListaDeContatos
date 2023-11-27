@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2023 às 00:49
+-- Tempo de geração: 28/11/2023 às 00:21
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `contatos` (
   `id` int(11) NOT NULL,
   `nome` varchar(60) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `telefone` int(120) DEFAULT NULL,
+  `telefone` varchar(60) DEFAULT NULL,
   `data_aniversario` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,8 +40,9 @@ CREATE TABLE `contatos` (
 --
 
 INSERT INTO `contatos` (`id`, `nome`, `email`, `telefone`, `data_aniversario`) VALUES
-(1, 'Adriel', 'adrielfantazini@gmail.com', 1299615326, '2023-11-22'),
-(3, 'Estevão', 'estevin@furioso.com', 2147483647, '2023-11-22');
+(1, 'Adriel', 'adrielfantazini@gmail.com', '1299615326', '2023-11-22'),
+(3, 'Estevão', 'estevin@furioso.com', '2147483647', '2023-11-22'),
+(9, 'Marcus', '12994855337', 'marcio@gmail.com', '2023-11-27');
 
 --
 -- Índices para tabelas despejadas
@@ -61,7 +62,7 @@ ALTER TABLE `contatos`
 -- AUTO_INCREMENT de tabela `contatos`
 --
 ALTER TABLE `contatos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
