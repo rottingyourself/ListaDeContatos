@@ -14,11 +14,12 @@ namespace ListaDeContatos.Classes.Banco
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
+        public DateTime Data_aniversario { get; set; }
 
         public DataTable ListarContato()
         {
-            string comando = "SELECT * FROM view_contatos";
+            string comando = "SELECT * FROM contatos";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
@@ -36,14 +37,15 @@ namespace ListaDeContatos.Classes.Banco
 
         public bool Cadastrar()
         {
-            string comando = "INSERT INTO contatos (nome, email, telefone) " +
-                "VALUES (@nome, @email, @telefone)";
+            string comando = "INSERT INTO contatos (nome, email, telefone, data_aniversario) " +
+                "VALUES (@nome, @email, @telefone, @data_aniversario)";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@nome", Nome);
             cmd.Parameters.AddWithValue("@email", Email);
             cmd.Parameters.AddWithValue("@telefone", Telefone);
+            cmd.Parameters.AddWithValue("@data_aniversario", Data_aniversario);
             cmd.Prepare();
             //try
             //{
@@ -69,14 +71,16 @@ namespace ListaDeContatos.Classes.Banco
 
         public bool Modificar()
         {
-            string comando = "UPDATE contatos SET nome = @nome, email = @email,  telefone = @telefone WHERE id = @id";
+            string comando = "UPDATE contatos SET nome = @nome, email = @email,  telefone = @telefone, data_aniversario = @data_aniversario WHERE id = @id";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@id", Id);
             cmd.Parameters.AddWithValue("@nome", Nome);
             cmd.Parameters.AddWithValue("@email", Email);
             cmd.Parameters.AddWithValue("@telefone", Telefone);
+            cmd.Parameters.AddWithValue("@data_aniversario", Data_aniversario);
             cmd.Prepare();
 
             try
@@ -103,7 +107,7 @@ namespace ListaDeContatos.Classes.Banco
         public DataTable ListarTudo()
         {
             string comando;
-            comando = "SELECT id, nome, email, telefone FROM contatos";
+            comando = "SELECT id, nome, email, telefone, data_aniversario FROM contatos";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
